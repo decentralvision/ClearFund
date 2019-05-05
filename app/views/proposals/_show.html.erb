@@ -1,0 +1,15 @@
+
+	<div class="info-box">
+		<h4><%= proposal.title %> - <%= proposal.user.name%></h4>
+
+		<p>
+		<%= proposal.description %>
+		</p>
+		<h4>Funding Goal:</h4> <%= number_to_currency(proposal.funding_goal) %>
+
+		<h4>Deadline:</h4> <%= proposal.expiration %> 
+		<% if logged_in? %>
+			<label class="proposalRadioLabel" for="<%=proposal.id%>">Vote:</label>
+			<input type="radio" name="proposal" id="<%=proposal.id%>">
+		<% end %>
+	</div>

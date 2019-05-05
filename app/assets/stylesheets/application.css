@@ -1,0 +1,198 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /*import font */
+ @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:700');
+ @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400');
+ @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:200');
+
+ /* menu styles */
+ 
+ nav {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+ }
+
+ nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #657B89;
+  position: -webkit-sticky; /* Safari */
+	position: sticky;
+	outline: 8px solid rgba(96,96,96,0.25);
+	text-align: center;
+	top: 0;
+}
+
+nav li {
+	float: left;
+
+}
+
+nav li a {
+  display: block;
+  color: #262C30;
+  text-align: center;
+  padding: 14px 20px;
+	text-decoration: none;
+	border-right: 1px solid #555;
+	font-weight: 700;
+}
+
+nav li a:hover {
+  background-color:#8BA1B0;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+/*Responsive Styles*/
+@media screen and (max-width : 500px){
+
+	/*Make dropdown links appear inline*/
+	nav {
+			position: static;
+	}
+	/*Create vertical spacing*/
+
+	/*Make all menu links full width*/
+	nav ul li {
+			width: 100%;
+	}
+	nav li+li { 
+		border-top: 1px solid #555;
+		border-left: none;
+	}
+	div#wrapper {
+		width: 100%;
+		margin: 0;
+
+	}
+
+	div label.proposalRadioLabel{
+		position: absolute;
+		bottom: 60px;
+		left: 70%;
+	}
+	div input[type=radio] {
+		position: absolute;
+		bottom: 60px;
+	}
+}
+
+/* general styles */ 
+
+.info-box {
+	padding: 15px 15px;
+	border: 5px solid #efefed;
+	border-radius: 20px;
+	background-color: #e8e8e8;
+	margin: 0px 20px 20px;
+	position: relative;
+ }
+
+ body {
+	 margin:0px;
+	 padding: 0px;
+	 font-family: 'Fira Sans Condensed', sans-serif;
+	 background-color: #ceccc2;
+	 font-weight:300;
+ }
+
+#wrapper {
+	width: 80%;
+	height: 100vh;
+	margin: auto;
+	background-color: whitesmoke;
+	box-shadow: 0px -10px 100px rgb(0,0,0,0.3);
+	padding-top: 20px;
+}
+
+h1 {
+	padding: 20px 0px 0px 0px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+h3 {
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+h4 {
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+}
+
+p {
+	font-weight: 200;
+}
+
+/* proposal list style */
+
+ul {
+	list-style-type: none;
+  margin: 0;
+	padding: 20px 0;
+}
+
+/* checkbox styles */
+
+input[type=radio] {
+	width: 25px;
+	position: absolute;
+	bottom: 25px;
+	left: 80%;
+	}
+
+label.proposalRadioLabel{
+	width: 25px;
+	position: absolute;
+	bottom: 25px;
+	left: 73%;
+	font-weight: 400;
+}
+
+/* Form Grid */
+
+form {
+	display: grid;
+	grid-template-columns: [labels] 1fr [controls] 1fr;
+	grid-gap: 0.8em;
+	padding: 1.2em;
+	grid-auto-flow: row;
+	min-width: 100px;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 10%
+}
+form > label {
+	grid-column: labels;
+	grid-row: auto;
+	min-width: 10px;
+	text-transform: capitalize;
+}
+form > input {
+	grid-column: controls;
+	grid-row: auto;
+	min-width: 10px;
+}

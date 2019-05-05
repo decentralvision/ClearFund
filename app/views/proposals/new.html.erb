@@ -1,0 +1,16 @@
+<%= form_for @proposal, controller: 'proposals', action: 'create' do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :funding_goal %>
+  <%= f.number_field :funding_goal %>
+
+	<%= f.label :expiration_date %>
+	<%= f.date_field :expiration%>
+  <%= f.submit "Submit" %>
+
+<% end %>

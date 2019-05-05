@@ -1,0 +1,15 @@
+<%= form_for @user, :html => {:class => 'userform' }, controller: 'users', action: 'create' do |f| %>
+
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :confirm_password %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Sign Up" %>
+
+<% end %>
