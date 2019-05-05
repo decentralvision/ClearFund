@@ -2,18 +2,19 @@ class ProposalsController < ApplicationController
 	include ApplicationHelper
 
 	def new
+		@user = current_user
 		@proposal = Proposal.new
 	end
 
 	def create
-		# proposal = current_user.buildproposals.new(proposal_params.merge(user_id: current_user.id))
-		proposal = current_user.proposal.new(proposal_params)
-		byebug
+		proposal = current_user.proposals.new(proposal_params)
+		# proposal = current_user.proposals.build(proposal_params)
+
 		if proposal.save
-			redirect_to proposal_path(proposal)
+			redirect_to user_proposal_path(proposal, current_user)
 		else 
 			flash[:alert] = "There was a problem creating your proposal."
-			redirect_to new_proposal_path
+			redirect_to new_user_proposal_path
 		end
 	end
 
@@ -28,7 +29,7 @@ class ProposalsController < ApplicationController
 	private
 
 	def proposal_params
-		params.require(:proposal).permit(:title, :description, :funding_goal, :expiration)
+		params.require(:proposal).permit(:title, :description, :funding_goal, :expiration, :user_id)
 	end
 
 end
