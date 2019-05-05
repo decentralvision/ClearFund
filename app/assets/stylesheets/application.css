@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui/slider
  */
 
  /*import font */
@@ -155,7 +156,7 @@ ul {
 	padding: 20px 0;
 }
 
-/* checkbox styles */
+/* radio button styles */
 
 input[type=radio] {
 	width: 25px;
@@ -184,6 +185,30 @@ form {
 	max-width: 400px;
 	margin: 0 auto;
 	padding: 10%
+}
+
+form > div#slider {
+ margin-top: 3px;
+}
+form > .ui-widget-content .ui-state-active {
+	background: lightskyblue;
+	border: lightblue;
+	margin-top: 1px;
+	color: none;
+}
+form > input[type=number] {
+	width: 40px;
+}
+
+form > h5 {
+	margin: 0;
+	font-weight: 400;
+	font-size: 15px;
+}
+
+form > h4 {
+	padding-top: 6px;
+	text-align: right;
 }
 form > label {
 	grid-column: labels;
