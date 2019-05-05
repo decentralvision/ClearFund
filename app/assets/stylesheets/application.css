@@ -203,7 +203,8 @@ form > input[type=number] {
 form > h5 {
 	margin: 0;
 	font-weight: 400;
-	font-size: 15px;
+	font-size: 16px;
+	letter-spacing: -0.5px;
 }
 
 form > h4 {
@@ -220,4 +221,13 @@ form > input {
 	grid-column: controls;
 	grid-row: auto;
 	min-width: 10px;
+}
+
+form > button {
+	grid-column: controls;
+
+}
+form > button a {
+	text-decoration: none;
+	color: red;
 }
