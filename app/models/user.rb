@@ -6,5 +6,8 @@ class User < ApplicationRecord
 	has_many :proposals, through: :votes
 	has_secure_password
 
+	def membership_dues
+		self.membership.dues
+	end
 
 end

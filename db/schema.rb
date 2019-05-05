@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_05_05_064000) do
 
   create_table "memberships", force: :cascade do |t|
-    t.boolean "active"
+    t.boolean "active", default: true
     t.integer "dues"
     t.integer "user_id"
     t.datetime "created_at", null: false
