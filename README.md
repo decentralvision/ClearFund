@@ -6,7 +6,7 @@ Using ruby 2.4.1p111 (2017-03-22 revision 58053) [i686-linux]
 
 run rake db:migrate to initialize the database
 
-run rake rspec
+run rake rspec to run tests
 
 * System dependencies
 
@@ -75,7 +75,6 @@ vote
 	belongs_to proposal
 	scope: active 
 
-treasury
 
 
 controllers

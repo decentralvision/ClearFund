@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+
+  root 'welcome#index'
+
+	get '/donate' => 'treasury#donate', as: '/donate'
+  get '/membership' => 'treasury#membership', as: '/membership'
 	get '/about' => 'welcome#about', as: '/about'
 	get '/proposals' => 'proposals#index', as: '/proposals'
-	get '/donate' => 'welcome#index', as: 'donate'
-  root 'welcome#index'
 
 	get '/signup' => 'users#new'
 
