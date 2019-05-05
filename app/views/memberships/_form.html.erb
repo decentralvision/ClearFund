@@ -1,0 +1,25 @@
+<script>
+$(document).ready(function() {
+
+    var slider = $("#slider").slider({
+        min: 5,
+				max: 99,
+				value: $("#membership_dues").val(),
+        slide: function(event, ui) {
+            $("#membership_dues").val(ui.value);
+        }
+		});
+
+		$("#membership_dues").val(slider.slider("value"));
+});
+</script>
+
+
+<%= form_for([@user, @membership]) do |f| %>
+<h5>Sliding-scale membership fee:</h5> <div id="slider"></div>
+<h4>$</h4>	<%= f.number_field :dues %>
+<%= f.submit %>
+<% if @user.active_membership? %>
+	<button><%= link_to "Cancel Membership", user_membership_path(@user, @membership), method: :delete, data: { confirm: "Really?" } %></button>
+<% end %>
+<% end %>

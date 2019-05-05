@@ -1,0 +1,7 @@
+<div class="info-box">
+<% if logged_in? %>
+	<%= render partial: 'form', locals: {membership: @membership}%>
+<% else %>
+	<h3>Sign up for an account before creating a membership </h3>
+<% end %>
+</div>
