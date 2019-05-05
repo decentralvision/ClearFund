@@ -35,7 +35,7 @@
   background-color: #657B89;
   position: -webkit-sticky; /* Safari */
 	position: sticky;
-	outline: 8px solid rgba(96,96,96,0.25);
+	outline: 5px solid rgba(171, 224, 255, 0.5);
 	text-align: center;
 	top: 0;
 }
@@ -126,13 +126,13 @@ nav li a:hover {
 }
 
 h1 {
-	padding: 20px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 	margin: 0 auto;
 	text-align: center;
 }
 
 h3 {
-	padding: 0;
+	padding: 0 0 15px 0;
 	margin: 0 auto;
 	text-align: center;
 }

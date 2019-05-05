@@ -1,7 +1,8 @@
 # ClearFund
 ClearFund is the world's first decentralized charity. Contributions to the fund are distributed democratically based on members votes.
 
-Using Ruby 5.1.3
+Using rails 5.2.3
+Using ruby 2.4.1p111 (2017-03-22 revision 58053) [i686-linux]
 
 run rake db:migrate to initialize the database
 
