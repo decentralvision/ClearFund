@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_054333) do
+ActiveRecord::Schema.define(version: 2019_05_05_064000) do
+
+  create_table "memberships", force: :cascade do |t|
+    t.boolean "active"
+    t.integer "dues"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "proposals", force: :cascade do |t|
     t.string "title"
@@ -19,6 +27,12 @@ ActiveRecord::Schema.define(version: 2019_05_04_054333) do
     t.integer "funding"
     t.datetime "expiration"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "treasuries", force: :cascade do |t|
+    t.integer "funds"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
