@@ -9,4 +9,7 @@ class User < ApplicationRecord
 
 	has_secure_password
 
+	def self.members
+		select{|user| user.try(:membership).try(:active)}
+	end
 end

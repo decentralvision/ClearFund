@@ -18,4 +18,34 @@ class Treasury < ApplicationRecord
 		end
 	end
 
+
+	def self.process_memberships
+		treasury = Treasury.find_or_create
+		User.members.each do |member|
+			treasury.funds += member.membership_dues
+			treasury.save
+		end
+		treasury.distribute_funds
+	end
+	
+	def distribute_funds
+		unless Proposal.active.size == 0
+			while self.funds >= 0 
+				proposal = Proposal.max_votes
+				remaining_funding = proposal.funding_goal - proposal.funding
+				if self.funds >= remaining_funding
+					proposal.funding += remaining_funding
+					proposal.active = false
+					proposal.save
+					self.funds -= remaining_funding
+					self.save
+				else
+					proposal.funding += self.funds
+					self.funds -= remaining.funding
+					proposal.save
+					self.save
+				end
+			end
+		end
+	end
 end

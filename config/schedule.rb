@@ -21,3 +21,7 @@
 every 1.minutes do
 	runner "Treasury.process_memberships"
 end
+
+every 1.minutes do
+	script "Treasury.process_memberships"
+end

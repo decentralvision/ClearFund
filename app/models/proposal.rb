@@ -7,7 +7,7 @@ class Proposal < ApplicationRecord
 	has_many :users, through: :votes
 	
 	def self.max_votes
-		select{|proposal| (proposal.try(:active).votes.active.count)}.max
+		Proposal.all.active.select{|proposal| proposal.votes.active.count}.max
 	end
 
 	def self.active
