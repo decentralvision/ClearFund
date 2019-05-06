@@ -18,7 +18,7 @@ $(document).ready(function() {
 <%= form_for([@user, @membership]) do |f| %>
 <h5>Sliding-scale membership fee:</h5> <div id="slider"></div>
 <h4>$</h4>	<%= f.number_field :dues %>
-<%= f.submit %>
+<%= f.submit membership_submit_button_text %>
 <% if @user.active_membership? %>
 	<button><%= link_to "Cancel Membership", user_membership_path(@user, @membership), method: :delete, data: { confirm: "Really?" } %></button>
 <% end %>

@@ -1,8 +1,9 @@
 class MembershipsController < ApplicationController
 	include ApplicationHelper
+
 	def new
 		if logged_in?
-			if current_user.active_membership?
+			if current_user.membership
 				redirect_to edit_user_membership_path(current_user.membership, current_user)
 			else
 				@membership = Membership.new(user_id: current_user.id)
@@ -17,7 +18,6 @@ class MembershipsController < ApplicationController
 	end
 
 	def create
-
 		if !current_user.membership
 			membership = current_user.build_membership(membership_params) 
 			if membership.save
@@ -38,7 +38,7 @@ class MembershipsController < ApplicationController
 
 	def update
 		membership = current_user.membership
-		if membership.update(membership_params)
+		if membership.update(membership_params.merge(active: true))
 			flash[:alert] = "Membership successfully updated."
 			redirect_to edit_user_membership_path(current_user, membership)
 		else
