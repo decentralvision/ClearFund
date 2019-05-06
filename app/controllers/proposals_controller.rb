@@ -19,7 +19,7 @@ class ProposalsController < ApplicationController
 
 	def index
 		#sort by votes
-		@proposals = Proposal.all
+		@proposals = Proposal.active
 	end
 
 	def show
