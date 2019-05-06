@@ -18,10 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+set :environment, "development"
+set :output, "log/cron.log"
 every 1.minutes do
 	runner "Treasury.process_memberships"
 end
-
-every 1.minutes do
-	script "Treasury.process_memberships"
-end
+	
