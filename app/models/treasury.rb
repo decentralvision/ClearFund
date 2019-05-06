@@ -5,7 +5,6 @@ class Treasury < ApplicationRecord
 	end
 
 	def self.funds=(funds)
-		
 		treasury = self.find_or_create
 		treasury.funds = treasury.funds + funds
 		treasury.save

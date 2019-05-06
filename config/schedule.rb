@@ -19,5 +19,5 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.minutes do
-	runner "Treasury.process_membership_dues"
+	runner "Treasury.process_memberships"
 end

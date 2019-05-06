@@ -7,4 +7,6 @@ module ProposalsHelper
 	def active_vote?(user)
 		user.active_vote_proposal_id == self.id
 	end
+
+	
 end

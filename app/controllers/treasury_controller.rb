@@ -1,6 +1,5 @@
 class TreasuryController < ApplicationController
 	def donate
-
   end
 
 	def process_donation
@@ -17,7 +16,7 @@ class TreasuryController < ApplicationController
 	
 	def distribute_funds
 		while self.funds >= 0
-			proposal = Proposals.where max votes
+			proposal = Proposal.max_votes
 			remaining_funding = proposal.funding_goal - proposal.funding
 			if self.funds >= remaining_funding
 				proposal.funding += remaining_funding
@@ -33,4 +32,6 @@ class TreasuryController < ApplicationController
 			end
 		end
 	end
+
+
 end
