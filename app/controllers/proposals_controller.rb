@@ -7,9 +7,8 @@ class ProposalsController < ApplicationController
 	end
 
 	def create
-		proposal = current_user.proposals.new(proposal_params)
-		# proposal = current_user.proposals.build(proposal_params)
 
+		proposal = current_user.proposals.new
 		if proposal.save
 			redirect_to user_proposal_path(proposal, current_user)
 		else 

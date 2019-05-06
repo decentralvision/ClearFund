@@ -8,16 +8,45 @@
 		<h4>Funding:</h4> <%= number_to_currency(proposal.funding) %>
 		<h4>Funding Goal:</h4> <%= number_to_currency(proposal.funding_goal) %>
 		
-		<h4>Votes: <%= proposal.active_votes_count %> </h4>
+		<h4 class="votes">Votes: <%= proposal.active_votes_count %> </h4>
 
 		<h4>Deadline:</h4> <%= proposal.expiration %> 
 
 		<% if logged_in? %>
-			<label class="proposalRadioLabel" for="<%=proposal.id%>">Vote:</label>
-			<%=f.radio_button vote id=proposal.id, checked => proposal.active_vote?(current_user) ? true : false  %>", onclick: "$(this).closest('form').submit">
+			<%= form_tag user_votes_path(current_user) do %>
+				<%= render partial: 'votes/vote_radio', locals: {proposal: proposal, user: current_user} %>
+			<% end %>
 		<% end %>
 	</div>
 
 <script>
-document.
+
+
+$(":submit").on("click", function (event){
+	
+	event.preventDefault();
+
+  var url=$(this).closest('form').attr('action'),	data=$(this).closest('form').serialize(), button=$(this);
+	
+	$.ajax({
+	type: 'post',
+	url: url,
+	data: data,
+		success: function(results) {
+			$(":submit").css("color", "grey");
+			
+			button.css("color", "green");
+
+			var votes = $(".votes")
+
+			$.get(location.href).then(function(page) {
+				$.each(votes, function(i, value) {
+					console.log(votes.eq(i).html)
+					votes.eq(i).html($(page).find(".votes").eq(i).html())
+				});
+			});
+		}
+	});
+});
+
 </script>

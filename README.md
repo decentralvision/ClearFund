@@ -102,5 +102,9 @@ controllers
 		new as /login
 		destroy as /logout
 
+clicking radio button triggers form submission
+form sends key value pairs proposal id : boolean
+for each proposal 
+controller action update users votes with proposal id and boolean for each key value pair
 
 		

@@ -1,5 +1,5 @@
 module ProposalsHelper
-	
+
 	def active_votes_count
 		self.votes.active.count
 	end
