@@ -29,8 +29,9 @@ class Treasury < ApplicationRecord
 	end
 	
 	def distribute_funds
-		unless Proposal.active.size == 0
-			while self.funds >= 0 
+		if Proposal.active.size != 0
+			while self.funds > 0 
+				byebug
 				proposal = Proposal.max_votes
 				remaining_funding = proposal.funding_goal - proposal.funding
 				if self.funds >= remaining_funding
@@ -41,8 +42,8 @@ class Treasury < ApplicationRecord
 					self.save
 				else
 					proposal.funding += self.funds
-					self.funds -= remaining.funding
 					proposal.save
+					self.funds = 0
 					self.save
 				end
 			end

@@ -12,9 +12,7 @@ class VotesController < ApplicationController
 		end
 		vote = Vote.find_or_create_by(user_id: params[:user_id], proposal_id: params[:proposal_id])
 		vote.active = (vote.active ? !vote.active : true) 
-		
 		vote.save
-
   end
 
   def update
