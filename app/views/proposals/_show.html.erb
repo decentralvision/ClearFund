@@ -5,11 +5,19 @@
 		<p>
 		<%= proposal.description %>
 		</p>
+		<h4>Funding:</h4> <%= number_to_currency(proposal.funding) %>
 		<h4>Funding Goal:</h4> <%= number_to_currency(proposal.funding_goal) %>
+		
+		<h4>Votes: <%= proposal.active_votes_count %> </h4>
 
 		<h4>Deadline:</h4> <%= proposal.expiration %> 
+
 		<% if logged_in? %>
 			<label class="proposalRadioLabel" for="<%=proposal.id%>">Vote:</label>
-			<input type="radio" name="proposal" id="<%=proposal.id%>">
+			<%=f.radio_button vote id=proposal.id, checked => proposal.active_vote?(current_user) ? true : false  %>", onclick: "$(this).closest('form').submit">
 		<% end %>
 	</div>
+
+<script>
+document.
+</script>

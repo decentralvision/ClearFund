@@ -19,6 +19,7 @@ class ProposalsController < ApplicationController
 	end
 
 	def index
+		#sort by votes
 		@proposals = Proposal.all
 	end
 
