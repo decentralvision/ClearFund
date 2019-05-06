@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'votes/create'
+  get 'votes/update'
+  get 'votes/delete'
   root 'welcome#index'
 
 	get '/donate' => 'treasury#donate', as: '/donate'
 	post '/process_donation' => 'treasury#process_donation', as: "/processing"
+	
 	get '/about' => 'welcome#about', as: '/about'
+	
 	get '/proposals' => 'proposals#index', as: '/proposals'
 
 	get '/signup' => 'users#new'
