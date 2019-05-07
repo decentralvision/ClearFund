@@ -102,9 +102,28 @@ controllers
 		new as /login
 		destroy as /logout
 
-clicking radio button triggers form submission
-form sends key value pairs proposal id : boolean
-for each proposal 
-controller action update users votes with proposal id and boolean for each key value pair
+add comments to proposals - 
+user authentication on proposals controller
+update has content and date
+proposal show has form for comment
 
-		
+user has many comments through proposals
+
+proposal has many users through comments
+proposal has many comments
+
+work on user authentication for modifying/editing/viewing resources
+
+work on separation of concerns
+
+fields with errors in all forms
+
+add notification panel 
+
+add users/proposals/index page
+
+Add openauth
+
+add validations to forms (validates ;name, :presence)
+
+specifiy strong params (figure out what to do about voting)
