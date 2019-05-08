@@ -1,7 +1,7 @@
 		<% if proposal.active_vote?(user) %>
-			<input type="submit" value="Vote" style="color:green">
+			<input type="submit" value="Vote" style="color:green" id="<%=proposal.id%>">
 			<%= hidden_field_tag "proposal_id", proposal.id %>
 		<% else %>
-			<input type="submit" value="Vote">
+			<input type="submit" value="Vote" id="<%=proposal.id%>">
 			<%= hidden_field_tag "proposal_id", proposal.id %>
 		<% end %>

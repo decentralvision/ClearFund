@@ -1,26 +1,27 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  root 'welcome#index'
 
-	root 'welcome#index'
+  get '/donate' => 'treasury#donate', as: '/donate'
+  post '/process_donation' => 'treasury#process_donation', as: '/processing'
 
-	get '/donate' => 'treasury#donate', as: '/donate'
-	post '/process_donation' => 'treasury#process_donation', as: "/processing"
-	
-	get '/about' => 'welcome#about', as: '/about'
-	
-	get '/proposals' => 'proposals#index', as: '/proposals'
+  get '/about' => 'welcome#about', as: '/about'
 
-	get '/signup' => 'users#new'
+  get '/proposals' => 'proposals#index', as: '/proposals'
 
-	get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'	
-	get '/logout' => 'sessions#destroy'
-	get '/memberships' => 'memberships#new'
+  get '/signup' => 'users#new'
 
-	resources :users do
-		resources :proposals 
-		resources :memberships
-		resources :votes
-	end
-	
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  get '/memberships' => 'memberships#new'
+
+  resources :users do
+    resources :proposals
+    resources :memberships
+    resources :votes
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -127,3 +127,9 @@ Add openauth
 add validations to forms (validates ;name, :presence)
 
 specifiy strong params (figure out what to do about voting)
+
+add comments through votes
+
+google oauth - localhost may cause error but it should still work fine
+
+basic validations

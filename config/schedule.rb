@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
@@ -18,9 +20,8 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :environment, "development"
-set :output, "log/cron.log"
+set :environment, 'development'
+set :output, 'log/cron.log'
 every 1.minutes do
-	runner "Treasury.process_memberships"
+  runner 'Treasury.process_memberships'
 end
-	
