@@ -19,33 +19,3 @@
 		<% end %>
 	</div>
 
-<script>
-
-console.log($(:submit).id)
-
-$(":submit").on("click", function (event){
-
-	event.preventDefault();
-
-  var url=$(this).closest('form').attr('action'),	data=$(this).closest('form').serialize(), button=$(this);
-
-	$.ajax({
-	type: 'post',
-	url: url,
-	data: data,
-		success: function(results) {
-			$(":submit").css("color", "grey");
-			button.css("color", "green");
-
-			var votes = $(".votes")
-
-			$.get(location.href).then(function(page) {
-				$.each(votes, function(i, value) {
-					votes.eq(i).html($(page).find(".votes").eq(i).html())
-				});
-			});
-		}
-	});
-});
-
-</script>
