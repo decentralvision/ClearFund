@@ -1,8 +1,9 @@
 # ClearFund
 ClearFund is the world's first decentralized charity. Contributions to the fund are distributed democratically based on members votes.
 
-Using rails 5.2.3
-Using ruby 2.4.1p111 (2017-03-22 revision 58053) [i686-linux]
+Using rails "5.2.3"
+Use ruby "2.4.1" (2017-03-22 revision 58053) [i686-linux]
+Use "whenever --update-crontab" to allow automated membership processing
 
 run rake db:migrate to initialize the database
 
@@ -15,6 +16,9 @@ run rake rspec to run tests
 * Database creation
 
 * Database initialization
+
+  git config --global user.email "36858744+decentralvision@users.noreply.github.com"
+  git config --global user.name "Tom K."
 
 * How to run the test suite
 
