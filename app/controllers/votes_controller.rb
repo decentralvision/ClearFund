@@ -17,10 +17,12 @@ class VotesController < ApplicationController
         current_vote.comment = nil
         current_vote.save
       end
-      @vote.comment = params[:comment]
+      @vote.comment = params[:comment].empty? ? nil : params[:comment]
       @vote.active = true
     end
     @vote.save
+    byebug
+    redirect_to '/proposals'
   end
 
   def update; end

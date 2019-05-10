@@ -19,8 +19,7 @@ class ProposalsController < ApplicationController
   end
 
   def index
-    # sort by votes
-    @proposals = Proposal.active
+    @proposals = Proposal.active.sort_by{|proposal| proposal.active_votes_count}.reverse
   end
 
   def show
