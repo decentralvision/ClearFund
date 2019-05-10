@@ -13,6 +13,10 @@ module UsersHelper
     votes.active.empty? ? nil : votes.active.first
   end
 
+  def vote_comment
+    self.active_vote.comment
+  end
+
   def active_vote_proposal_id
     active_vote ? active_vote.proposal_id : nil
   end

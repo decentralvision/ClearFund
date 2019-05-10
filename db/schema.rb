@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_05_05_064000) do
     t.boolean "active", default: true
     t.integer "user_id"
     t.integer "proposal_id"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

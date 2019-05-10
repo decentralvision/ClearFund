@@ -8,4 +8,8 @@ module ProposalsHelper
   def active_vote?(user)
     user.active_vote_proposal_id == id
   end
+
+  def active_vote(user)
+    user.active_vote
+  end
 end

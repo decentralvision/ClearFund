@@ -15,8 +15,10 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    current_user.membership.update(active: false)
-    redirect_to new_user_membership_path
+    membership = current_user.membership 
+    membership.active = false
+    membership.save
+    redirect_to edit_user_membership_path
   end
 
   def create

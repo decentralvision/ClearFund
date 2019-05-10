@@ -1,0 +1,9 @@
+		<%= hidden_field_tag "proposal_id", proposal.id %>
+		<% if proposal.active_vote?(user) %>
+			<%= user.vote_comment %>
+			<input type="submit" value="Vote" style="color:green">
+		<% else %>
+			<input type="text">
+			<input type="submit" value="Vote">
+		<% end %>
+		

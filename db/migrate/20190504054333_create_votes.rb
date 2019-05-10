@@ -6,7 +6,7 @@ class CreateVotes < ActiveRecord::Migration[5.2]
       t.boolean :active, default: true
       t.integer :user_id
       t.integer :proposal_id
-
+      t.text :comment
       t.timestamps
     end
   end

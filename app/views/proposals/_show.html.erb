@@ -1,20 +1,15 @@
-
 	<div class="info-box">
 		<h4><%= proposal.title %> - <%= proposal.user.name%></h4>
-
 		<p>
 		<%= proposal.description %>
 		</p>
 		<h4>Funding:</h4> <%= number_to_currency(proposal.funding) %>
 		<h4>Funding Goal:</h4> <%= number_to_currency(proposal.funding_goal) %>
-		
 		<h4 class="votes">Votes: <%= proposal.active_votes_count %> </h4>
-
 		<h4>Deadline:</h4> <%= proposal.expiration %> 
-
 		<% if logged_in? %>
 			<%= form_tag user_votes_path(current_user) do %>
-				<%= render partial: 'votes/vote_radio', locals: {proposal: proposal, user: current_user} %>
+				<%= render partial: 'votes/vote_form', locals: {proposal: proposal, user: current_user} %>
 			<% end %>
 		<% end %>
 	</div>
