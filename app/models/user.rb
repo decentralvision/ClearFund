@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :proposals
   has_many :proposals, through: :votes
 
+  validates :name, presence: true 
+  validates :password, confirmation: true
   has_secure_password
 
   def self.members

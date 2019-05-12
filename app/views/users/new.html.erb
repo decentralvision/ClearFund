@@ -1,14 +1,28 @@
 <%= form_for @user, :html => {:class => 'userform' }, controller: 'users', action: 'create' do |f| %>
 
-
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+  <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
   <%= f.label :name %>
   <%= f.text_field :name %>
-
+  </div>
+  
+  <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
   <%= f.label :password %>
   <%= f.password_field :password %>
-
+  
   <%= f.label :confirm_password %>
   <%= f.password_field :password_confirmation %>
+  </div>
 
   <%= f.submit "Sign Up" %>
 
