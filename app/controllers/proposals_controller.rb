@@ -9,11 +9,11 @@ class ProposalsController < ApplicationController
   end
 
   def create
+    @user = current_user
+    @proposal = Proposal.new(proposal_params)
 
-    proposal = Proposal.new(proposal_params)
-
-    if proposal.save
-      redirect_to user_proposal_path(current_user, proposal)
+    if @proposal.save
+      redirect_to user_proposal_path(@user, @proposal)
     else
       flash[:alert] = 'There was a problem creating your proposal.'
       render :new

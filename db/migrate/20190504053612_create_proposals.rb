@@ -8,7 +8,7 @@ class CreateProposals < ActiveRecord::Migration[5.2]
       t.integer :funding_goal
       t.integer :funding, default: 0
       t.boolean :active, default: true
-      t.datetime :expiration
+      t.date :expiration
       t.integer :user_id
 
       t.timestamps

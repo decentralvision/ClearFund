@@ -1,5 +1,15 @@
 
 <%= form_for([@user, @proposal]) do |f| %>
+  <% if @proposal.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @proposal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   
   <div class="field<%= ' field_with_errors' if @proposal.errors[:title].any? %>">
   <%= f.label :title %>
