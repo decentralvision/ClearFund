@@ -134,7 +134,7 @@ specifiy strong params (figure out what to do about voting)
 
 add comments through votes
 
-google oauth - localhost may cause error but it should still work fine
+google oauth 
 
 basic validations
 

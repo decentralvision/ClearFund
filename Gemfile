@@ -8,6 +8,7 @@ ruby '2.4.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
 gem 'whenever', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
