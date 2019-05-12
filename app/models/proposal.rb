@@ -8,6 +8,11 @@ class Proposal < ApplicationRecord
   has_many :votes
   has_many :users, through: :votes
 
+  validates :title
+  validates :description
+  validates :expiration
+  validates :funding_goal, numericality: { only_integer: true }
+
   def self.max_votes
     select { |proposal| proposal.votes.count == Proposal.max_vote_count }.first
   end

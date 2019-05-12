@@ -10,13 +10,13 @@ class ProposalsController < ApplicationController
 
   def create
 
-    proposal = Proposal.create(proposal_params)
+    proposal = Proposal.new(proposal_params)
 
     if proposal.save
       redirect_to user_proposal_path(current_user, proposal)
     else
       flash[:alert] = 'There was a problem creating your proposal.'
-      redirect_to new_user_proposal_path
+      render :new
     end
   end
 
@@ -26,7 +26,6 @@ class ProposalsController < ApplicationController
 
   def show
     @proposal = Proposal.find(params[:id])
-    byebug
   end
 
   private

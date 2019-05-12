@@ -1,17 +1,25 @@
 
 <%= form_for([@user, @proposal]) do |f| %>
-
+  
+  <div class="field<%= ' field_with_errors' if @proposal.errors[:title].any? %>">
   <%= f.label :title %>
   <%= f.text_field :title %>
+  </div>
 
+  <div class="field<%= ' field_with_errors' if @proposal.errors[:description].any? %>">
   <%= f.label :description %>
   <%= f.text_area :description %>
+  </div>
 
+  <div class="field<%= ' field_with_errors' if @proposal.errors[:funding_goal].any? %>">
   <%= f.label :funding_goal %>
   <%= f.number_field :funding_goal %>
+  </div>
 
+  <div class="field<%= ' field_with_errors' if @proposal.errors[:expiration_date].any? %>">
 	<%= f.label :expiration_date %>
 	<%= f.date_field :expiration%>
+  </div>
 
 	<%= f.hidden_field :user_id, :value => @user.id %>
 
