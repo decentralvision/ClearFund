@@ -1,6 +1,4 @@
-<% if flash[:alert]%>
-<h3><%=flash[:alert]%></h3>
-<% end %>
+
 <%= form_for([@user, @proposal]) do |f| %>
 
   <%= f.label :title %>

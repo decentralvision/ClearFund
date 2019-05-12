@@ -23,6 +23,9 @@
 		<div id="wrapper">
     <h1>ClearFund</h1> 
     <h3>Decentralized Charity</h3>
+    <% if flash[:alert]%>
+      <h3><%=flash[:alert]%></h3>
+    <% end %>
 		<%= yield %>
 		</div>
 
