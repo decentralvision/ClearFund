@@ -3,7 +3,10 @@
 Rails.application.routes.draw do
   root 'welcome#about'
   # get '/about' => 'welcome#about', as: '/about'
-
+  # Routes for Google authentication
+  get 'auth/:provider/callback', to: 'sessions#googleAuth'
+  get 'auth/failure', to: redirect('/')
+  
   get '/donate' => 'treasury#donate', as: '/donate'
   post '/process_donation' => 'treasury#process_donation', as: '/processing'
 
