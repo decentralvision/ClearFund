@@ -21,7 +21,6 @@ class VotesController < ApplicationController
       @vote.active = true
     end
     @vote.save
-    byebug
     redirect_to '/proposals'
   end
 

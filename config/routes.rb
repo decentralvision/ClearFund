@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'welcome#about'
+  # get '/about' => 'welcome#about', as: '/about'
 
   get '/donate' => 'treasury#donate', as: '/donate'
   post '/process_donation' => 'treasury#process_donation', as: '/processing'
-
-  get '/about' => 'welcome#about', as: '/about'
 
   get '/proposals' => 'proposals#index', as: '/proposals'
 

@@ -8,7 +8,7 @@ module ProposalsHelper
   def active_vote?(user)
     user.active_vote_proposal_id == id
   end
-
+  # remove this method in first release
   def active_vote(user)
     user.active_vote
   end
