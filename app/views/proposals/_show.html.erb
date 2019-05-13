@@ -1,5 +1,5 @@
 	<div class="info-box">
-		<h4><%= proposal.title %> - <%= proposal.user.name%></h4>
+		<h4><%= link_to "#{proposal.title} - #{proposal.user.name}", user_proposal_path(User.find(proposal.user_id), proposal) %></h4>
 		<p>
 		<%= proposal.description %>
 		</p>
