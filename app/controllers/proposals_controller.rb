@@ -4,8 +4,12 @@ class ProposalsController < ApplicationController
   include ApplicationHelper
 
   def new
-    @user = current_user
     @proposal = Proposal.new
+    @user = current_user
+    unless params[:user_id].to_i == current_user.id
+      redirect_to new_user_proposal_path(current_user)
+      return
+    end
   end
 
   def create
