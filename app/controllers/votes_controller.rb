@@ -31,6 +31,6 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.permit!
+    params.require(:proposal_id, :user_id)
   end
 end
