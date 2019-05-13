@@ -30,8 +30,8 @@ class Treasury < ApplicationRecord
 
   def distribute_funds
     unless Proposal.active.empty?
-      while funds > 0
-        proposal = Proposal.max_votes
+      while funds > 0 && Proposal.max_vote_count != 0
+        proposal = Proposal.max_votes.first
         remaining_funding = proposal.funding_goal - proposal.funding
         if funds >= remaining_funding
           proposal.funding += remaining_funding

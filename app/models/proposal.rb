@@ -20,7 +20,8 @@ class Proposal < ApplicationRecord
   end    
 
   def self.max_votes
-    select { |proposal| proposal.votes.count == Proposal.max_vote_count }.first
+    byebug
+    active.select { |proposal| proposal.votes.count == Proposal.max_vote_count }
   end
 
   def self.max_vote_count

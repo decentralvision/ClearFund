@@ -25,3 +25,7 @@ set :output, 'log/cron.log'
 every 1.minutes do
   runner 'Treasury.process_memberships'
 end
+
+every 1.day do
+  runner 'Proposal.deactivate_expired'
+end
