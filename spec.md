@@ -22,3 +22,11 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
+
+highest priority
+    add authentications to votes and membership routes
+    extract logic from controllers
+    extract logic and repetition from views
+lower priority
+    fix scheduled tasks (add timeout to runner methods?)
+    fix css so everything is pretty
