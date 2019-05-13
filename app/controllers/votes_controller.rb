@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# extract logic here
 class VotesController < ApplicationController
   include ApplicationHelper
 

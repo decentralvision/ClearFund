@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# extract some logic here 
 class MembershipsController < ApplicationController
   include ApplicationHelper
 

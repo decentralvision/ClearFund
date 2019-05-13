@@ -20,7 +20,6 @@ class Proposal < ApplicationRecord
   end    
 
   def self.max_votes
-    byebug
     active.select { |proposal| proposal.votes.count == Proposal.max_vote_count }
   end
 
@@ -30,5 +29,8 @@ class Proposal < ApplicationRecord
 
   def self.active
     select { |proposal| proposal.active }
+  end
+
+  def self.deactivate_expired
   end
 end

@@ -26,6 +26,6 @@ every 1.minutes do
   runner 'Treasury.process_memberships'
 end
 
-every 1.day do
+every 1.days do
   runner 'Proposal.deactivate_expired'
 end
