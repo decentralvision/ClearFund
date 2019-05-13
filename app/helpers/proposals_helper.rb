@@ -2,7 +2,11 @@
 
 module ProposalsHelper
   def active_votes_count
-    votes.active.count
+    active_votes.count
+  end
+
+  def active_votes
+    votes.active
   end
 
   def active_vote?(user)
