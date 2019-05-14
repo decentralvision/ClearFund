@@ -3,5 +3,5 @@
 class Membership < ApplicationRecord
   scope :active, -> { where(active: true) }
   belongs_to :user
-  validates :funding_goal, numericality: { only_integer: true }
+  validates :dues, numericality: { greater_than: 10, less_than_or_equal_to: 150, only_integer: true }
 end

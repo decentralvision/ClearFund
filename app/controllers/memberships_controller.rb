@@ -36,18 +36,17 @@ class MembershipsController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @membership = current_user.membership
+    @user, @membership = current_user, current_user.membership
   end
 
   def update
-    membership = current_user.membership
-    if membership.update(membership_params.merge(active: true))
+    @user, @membership = current_user, current_user.membership
+    if @membership.update(membership_params.merge(active: true))
       flash[:alert] = 'Membership successfully updated.'
-      redirect_to edit_user_membership_path(current_user, membership)
+      redirect_to edit_user_membership_path(@user, @membership)
     else
       flash[:alert] = 'There was a problem updating your membership.'
-      redirect_to edit_user_membership_path(current_user, membership)
+      render :edit
     end
   end
 

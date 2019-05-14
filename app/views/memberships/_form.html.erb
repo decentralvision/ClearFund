@@ -2,8 +2,8 @@
 $(document).ready(function() {
 
     var slider = $("#slider").slider({
-        min: 5,
-        max: 99,
+        min: 10,
+        max: 150,
         value: $("#membership_dues").val(),
         slide: function(event, ui) {
             $("#membership_dues").val(ui.value);
