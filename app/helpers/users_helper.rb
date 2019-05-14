@@ -2,7 +2,7 @@
 
 module UsersHelper
   def active_membership?
-    membership.id && membership.active ? true : false
+    membership.try(:id) && membership.try(:active) ? true : false
   end
 
   def membership_dues

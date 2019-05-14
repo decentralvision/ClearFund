@@ -8,7 +8,7 @@ class MembershipsController < ApplicationController
     if logged_in?
       authenticate_user
       if current_user.membership
-        redirect_to edit_user_membership_path(current_user.membership, current_user)
+        redirect_to edit_user_membership_path(current_user, current_user.membership)
       else
         @membership, @user = Membership.new(user_id: current_user.id), current_user
       end
@@ -36,7 +36,11 @@ class MembershipsController < ApplicationController
   def show
     redirect_to edit_user_membership_path
   end
-  
+
+  def index
+    redirect_to edit_user_membership_path
+  end
+
   def edit
     @user, @membership = current_user, current_user.membership
   end
