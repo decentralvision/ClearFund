@@ -31,6 +31,6 @@ class Proposal < ApplicationRecord
     select { |proposal| proposal.active }
   end
 
-  def self.deactivate_expired
-  end
+  # def self.deactivate_expired
+  # end
 end

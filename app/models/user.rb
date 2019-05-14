@@ -35,7 +35,8 @@ class User < ApplicationRecord
   end
   
   def active_vote
-    self.votes.active.empty? ? nil : self.votes.active.first
+    active_votes = self.votes.select{|vote| vote.active}
+    active_votes.empty? ? nil : active_votes[0]
   end
 
 end

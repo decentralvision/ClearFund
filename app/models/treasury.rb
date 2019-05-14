@@ -24,7 +24,6 @@ class Treasury < ApplicationRecord
     treasury.funds += donation.to_i
     treasury.save
     treasury.distribute_funds
-    redirect_to '/donate'
   end
   
   def self.process_memberships
