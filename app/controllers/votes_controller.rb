@@ -1,27 +1,24 @@
 # frozen_string_literal: true
 # extract logic here
 class VotesController < ApplicationController
-  include ApplicationHelper
+  include SessionsHelper
+  include UsersHelper
   before_action :authenticate_user
 
   def new; end
 
   def create
     @vote = Vote.find_or_create_by(user_id: params[:user_id], proposal_id: params[:proposal_id])
+    # deactivate vote if it's the user's current active vote
     if @vote == current_user.active_vote
-      @vote.comment = nil 
-      @vote.active = false
+      clear_active_vote_if_exists
     else
-      if current_user.active_vote
-        current_vote = current_user.active_vote
-        current_vote.active = false
-        current_vote.comment = nil
-        current_vote.save
-      end
+      clear_active_vote_if_exists
+      # clear active vote add comment, activate new vote, save 
       @vote.comment = params[:comment].empty? ? nil : params[:comment]
       @vote.active = true
+      @vote.save
     end
-    @vote.save
     redirect_to '/proposals'
   end
 
