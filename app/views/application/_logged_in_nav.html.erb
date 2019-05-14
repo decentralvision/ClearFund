@@ -2,11 +2,8 @@
 	<ul>
 		<li><%= link_to "About", "/"%></li>
 		<li><%= link_to "Proposals", "/proposals"%></li>
-		<li><% if current_user.active_membership? %>
-			<%= link_to "Membership", edit_user_membership_path(current_user, current_user.membership)%>
-		<% else %>
-			<%= link_to "Membership", new_user_membership_path(current_user) %>
-		<% end %>
+		<li>
+		<%= membership_nav_link %>
 		</li>
 		<li><%= link_to "Donate", "/donate"%></li>
 		<li><%= link_to "Create Proposal", new_user_proposal_path(current_user)%></li>
