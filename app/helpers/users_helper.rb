@@ -21,15 +21,7 @@ module UsersHelper
     active_vote ? active_vote.proposal_id : nil
   end
 
-  def clear_active_vote_if_exists
-    if current_user.active_vote
-      current_vote = current_user.active_vote
-      current_vote.active = false
-      current_vote.comment = nil
-      current_vote.save
-    end
-  end
-  
+
   # def clear_active_votes
   #   votes = self.votes.select{|vote| vote.active}
   #   votes.each{|vote| vote.active = false && vote.save}

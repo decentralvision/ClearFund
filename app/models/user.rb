@@ -24,4 +24,14 @@ class User < ApplicationRecord
       user.password = SecureRandom.hex(10)
     end
   end
+
+  def clear_active_vote_if_exists
+    if self.active_vote
+      current_vote = self.active_vote
+      current_vote.active = false
+      current_vote.comment = nil
+      current_vote.save
+    end
+  end
+  
 end
