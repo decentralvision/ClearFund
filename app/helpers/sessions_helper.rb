@@ -11,8 +11,7 @@ module SessionsHelper
 
     def authenticate_user
         if current_user
-            byebug
-            current_user.id == params[:id].to_i
+            redirect_to root_path unless current_user.id == params[:user_id].to_i
         else
            redirect_to root_path
         end

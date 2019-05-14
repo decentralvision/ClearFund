@@ -2,6 +2,7 @@
 # extract logic here
 class VotesController < ApplicationController
   include ApplicationHelper
+  before_action :authenticate_user
 
   def new; end
 

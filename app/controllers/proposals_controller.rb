@@ -2,6 +2,7 @@
 
 class ProposalsController < ApplicationController
   include SessionsHelper
+  before_action :authenticate_user
 
   def new
     @proposal = Proposal.new
