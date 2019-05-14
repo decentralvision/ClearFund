@@ -3,21 +3,33 @@ $(document).ready(function() {
 
     var slider = $("#slider").slider({
         min: 5,
-				max: 99,
-				value: $("#membership_dues").val(),
+        max: 99,
+        value: $("#membership_dues").val(),
         slide: function(event, ui) {
             $("#membership_dues").val(ui.value);
         }
-		});
+    });
 
-		$("#membership_dues").val(slider.slider("value"));
+    $("#membership_dues").val(slider.slider("value"));
 });
 </script>
 
 
 <%= form_for([@user, @membership]) do |f| %>
+  <% if @membership.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @membership.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <h5>Sliding-scale membership fee:</h5> <div id="slider"></div>
-<h4>$</h4>	<%= f.number_field :dues %>
+<div class="field<%= ' field_with_errors' if @membership.errors[:title].any? %>">
+    <h4>$</h4>	<%= f.number_field :dues %>
+</div>
 <%= f.submit membership_submit_button_text %>
 <% end %>
 <% if @user.active_membership? %>
