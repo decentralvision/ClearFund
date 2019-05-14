@@ -14,12 +14,7 @@
 
   <body>
 
-		<% if logged_in? %>
-			<%= render partial: "logged_in_nav"%>
-		<% else %>
-			<%= render partial: "logged_out_nav"%>
-		<% end %>
-
+    <%= nav_bar %>
 		<div id="wrapper">
     <h1>ClearFund</h1> 
     <h3>Decentralized Charity</h3>

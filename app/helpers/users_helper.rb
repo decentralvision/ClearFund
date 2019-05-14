@@ -29,6 +29,7 @@ module UsersHelper
       current_vote.save
     end
   end
+  
   # def clear_active_votes
   #   votes = self.votes.select{|vote| vote.active}
   #   votes.each{|vote| vote.active = false && vote.save}

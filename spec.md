@@ -25,8 +25,8 @@ Confirm:
 
 highest priority
     [X] add authentications to votes and membership paths
-    extract logic from controllers
-    extract logic and repetition from views
+    [X]extract logic from controllers
+    [ ]extract logic and repetition from views
 lower priority
     fix scheduled tasks (add timeout to runner methods?)
     fix css so everything is pretty
