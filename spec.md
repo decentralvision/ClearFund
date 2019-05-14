@@ -24,7 +24,7 @@ Confirm:
 - [ ] Views use partials if appropriate
 
 highest priority
-    add authentications to votes and membership routes
+    add authentications to votes and membership paths
     extract logic from controllers
     extract logic and repetition from views
 lower priority

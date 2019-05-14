@@ -25,4 +25,5 @@ module UsersHelper
     votes = self.votes.select{|vote| vote.active}
     votes.each{|vote| vote.active = false && vote.save}
   end
+
 end

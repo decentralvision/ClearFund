@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Proposal < ApplicationRecord
-  include ApplicationHelper
+  include SessionsHelper
   include ProposalsHelper
 
   belongs_to :user

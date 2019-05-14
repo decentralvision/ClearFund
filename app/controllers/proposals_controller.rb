@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProposalsController < ApplicationController
-  include ApplicationHelper
+  include SessionsHelper
 
   def new
     @proposal = Proposal.new
