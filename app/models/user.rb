@@ -34,4 +34,8 @@ class User < ApplicationRecord
     end
   end
   
+  def active_vote
+    votes.active.empty? ? nil : votes.active.first
+  end
+
 end

@@ -9,10 +9,6 @@ module UsersHelper
     membership.dues
   end
 
-  def active_vote
-    votes.active.empty? ? nil : votes.active.first
-  end
-
   def vote_comment
     self.active_vote.comment
   end
@@ -20,7 +16,6 @@ module UsersHelper
   def active_vote_proposal_id
     active_vote ? active_vote.proposal_id : nil
   end
-
 
   # def clear_active_votes
   #   votes = self.votes.select{|vote| vote.active}
