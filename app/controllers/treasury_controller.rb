@@ -6,7 +6,7 @@ class TreasuryController < ApplicationController
 
   def process_donation
     Treasury.process_donation(params[:donation_amount])
-    flash[:alert] = "Thank you for your donation of #{donation}"
+    flash[:alert] = "Thank you for your donation of #{params[:donation_amount]}"
     redirect_to '/donate'
   end
 end
