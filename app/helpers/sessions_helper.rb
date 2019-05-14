@@ -13,7 +13,7 @@ module SessionsHelper
         if current_user
             redirect_to root_path unless current_user.id == params[:user_id].to_i
         else
-           redirect_to root_path
+            redirect_to root_path
         end
     end
 end

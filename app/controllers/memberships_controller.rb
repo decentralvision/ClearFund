@@ -2,7 +2,7 @@
 # extract some logic here 
 class MembershipsController < ApplicationController
   include SessionsHelper
-  before_action :authenticate_user
+  before_action :authenticate_user, :except => [:new]
 
   def new
     if logged_in?
