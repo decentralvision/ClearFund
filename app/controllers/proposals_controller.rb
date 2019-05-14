@@ -2,7 +2,7 @@
 
 class ProposalsController < ApplicationController
   include SessionsHelper
-  before_action :authenticate_user
+  before_action :authenticate_user, :except => [:index]
 
   def new
     @proposal = Proposal.new

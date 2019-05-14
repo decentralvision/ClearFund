@@ -6,6 +6,7 @@ class MembershipsController < ApplicationController
 
   def new
     if logged_in?
+      authenticate_user
       if current_user.membership
         redirect_to edit_user_membership_path(current_user.membership, current_user)
       else
