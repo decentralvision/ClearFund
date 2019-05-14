@@ -23,16 +23,14 @@ class MembershipsController < ApplicationController
   end
 
   def create
-    if !current_user.membership
-      membership = current_user.build_membership(membership_params)
-      if membership.save
-        redirect_to edit_user_membership_path(current_user, membership)
-      end
+    @user = current_user
+    @membership = @user.build_membership(membership_params)
+    if @membership.save
+      redirect_to edit_user_membership_path(@user, @membership)
     else
-      current_user.membership.update(active: false)
+      flash[:alert] = 'There was a problem creating your membership.'
+      render :new
     end
-    flash[:alert] = 'You already have a membership.'
-    redirect_to edit_user_membership_path(current_user, current_user.membership)
   end
 
   def edit
