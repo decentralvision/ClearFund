@@ -21,9 +21,9 @@ module UsersHelper
     active_vote ? active_vote.proposal_id : nil
   end
 
-  def clear_active_votes
-    votes = self.votes.select{|vote| vote.active}
-    votes.each{|vote| vote.active = false && vote.save}
-  end
+  # def clear_active_votes
+  #   votes = self.votes.select{|vote| vote.active}
+  #   votes.each{|vote| vote.active = false && vote.save}
+  # end
 
 end
