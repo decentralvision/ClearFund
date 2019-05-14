@@ -19,6 +19,15 @@ class Treasury < ApplicationRecord
                  end
   end
 
+  def self.process_donation(donation)
+    byebug
+    treasury = find_or_create
+    treasury.funds += donation.to_i
+    treasury.save
+    treasury.distribute_funds
+    redirect_to '/donate'
+  end
+  
   def self.process_memberships
     treasury = Treasury.find_or_create
     User.members.each do |member|
