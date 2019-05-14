@@ -5,18 +5,14 @@ class ProposalsController < ApplicationController
   before_action :authenticate_user, :except => [:index]
 
   def new
-    @proposal = Proposal.new
-    @user = current_user
+    @proposal, @user = Proposal.new, current_user
     unless params[:user_id].to_i == current_user.id
       redirect_to new_user_proposal_path(current_user)
-      return
     end
   end
 
   def create
-    @user = current_user
-    @proposal = Proposal.new(proposal_params)
-
+    @user, @proposal = current_user, Proposal.new(proposal_params)
     if @proposal.save
       redirect_to user_proposal_path(@user, @proposal)
     else
