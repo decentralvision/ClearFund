@@ -9,3 +9,4 @@ class TreasuryController < ApplicationController
     flash[:alert] = "Thank you for your donation of #{donation}"
   end
 end
+  

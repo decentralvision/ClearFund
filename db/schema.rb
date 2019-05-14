@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_05_05_064000) do
     t.integer "funding_goal"
     t.integer "funding", default: 0
     t.boolean "active", default: true
-    t.datetime "expiration"
+    t.date "expiration"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

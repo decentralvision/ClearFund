@@ -20,7 +20,6 @@ class Treasury < ApplicationRecord
   end
 
   def self.process_donation(donation)
-    byebug
     treasury = find_or_create
     treasury.funds += donation.to_i
     treasury.save
