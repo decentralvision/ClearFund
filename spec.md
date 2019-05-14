@@ -23,10 +23,16 @@ Confirm:
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
 
-highest priority
-    [X] add authentications to votes and membership paths
-    [X]extract logic from controllers
-    [ ]extract logic and repetition from views
-lower priority
-    fix scheduled tasks (add timeout to runner methods?)
-    fix css so everything is pretty
+    high priority
+        [ ] add google sign up link to sign up page
+        [ ] move helpers used in controllers to models
+        [ ] blog post, demo video, coding session
+        [ ] fix css so everything is pretty
+        [ ] update readme - add explanations of how the app is ideally intended to work (crypto)
+        
+    low priority
+        [ ] fix scheduled tasks (add timeout to runner methods?)
+            [ ] deactivate expired proposals
+            [ ] process memberships should account for how long a user has been a member
+        [ ] add validations for passwords and usernames
+        [ ] add explanation of app function (donations not distributed if no proposals have votes, what membership is for)
