@@ -10,8 +10,7 @@ class MembershipsController < ApplicationController
       if current_user.membership
         redirect_to edit_user_membership_path(current_user.membership, current_user)
       else
-        @membership = Membership.new(user_id: current_user.id)
-        @user = current_user
+        @membership, @user = Membership.new(user_id: current_user.id), current_user
       end
     end
   end
@@ -28,7 +27,6 @@ class MembershipsController < ApplicationController
       membership = current_user.build_membership(membership_params)
       if membership.save
         redirect_to edit_user_membership_path(current_user, membership)
-        return
       end
     else
       current_user.membership.update(active: false)
@@ -49,7 +47,7 @@ class MembershipsController < ApplicationController
       redirect_to edit_user_membership_path(current_user, membership)
     else
       flash[:alert] = 'There was a problem updating your membership.'
-      redirect_to edit_membership_path(membership)
+      redirect_to edit_user_membership_path(current_user, membership)
     end
   end
 
