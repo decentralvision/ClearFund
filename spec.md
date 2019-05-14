@@ -24,8 +24,8 @@ Confirm:
 - [ ] Views use partials if appropriate
 
     high priority
-        [ ] add google sign up link to sign up page
-        [ ] move helpers used in controllers to models
+        [X] add google sign up link to sign up page
+        [ ] move helpers used in controllers to models?
         [ ] blog post, demo video, coding session
         [ ] fix css so everything is pretty
         [ ] update readme - add explanations of how the app is ideally intended to work (crypto)
