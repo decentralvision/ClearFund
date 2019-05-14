@@ -29,6 +29,7 @@ Confirm:
         [ ] blog post, demo video, coding session
         [ ] fix css so everything is pretty
         [ ] update readme - add explanations of how the app is ideally intended to work (crypto)
+        [ ] rubocop
         
     low priority
         [ ] fix scheduled tasks (add timeout to runner methods?)
