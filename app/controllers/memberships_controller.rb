@@ -33,6 +33,10 @@ class MembershipsController < ApplicationController
     end
   end
 
+  def show
+    redirect_to edit_user_membership_path
+  end
+  
   def edit
     @user, @membership = current_user, current_user.membership
   end
