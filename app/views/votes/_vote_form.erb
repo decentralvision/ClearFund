@@ -1,6 +1,5 @@
 		<%= hidden_field_tag "proposal_id", proposal.id %>
 		<% if proposal.active_vote?(user) %>
-			<%= (user.vote_comment) ? "Comment: #{user.vote_comment}" : ""  %>
 			<input type="submit" value="Vote" style="color:green">
 		<% else %>
 			<%= label_tag value="Comment:" %>

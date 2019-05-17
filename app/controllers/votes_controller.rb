@@ -14,7 +14,7 @@ class VotesController < ApplicationController
     @user.clear_active_vote_if_exists
     if @vote != @user.active_vote
       # clear active vote add comment, activate new vote, save 
-      @vote.comment = params[:comment] ? nil : params[:comment]
+      @vote.comment = params[:comment] ? params[:comment] : nil
       @vote.active = true
       @vote.save
     end

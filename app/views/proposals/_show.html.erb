@@ -7,9 +7,18 @@
 		<h4>Funding Goal:</h4> <%= number_to_currency(proposal.funding_goal) %>
 		<h4 class="votes">Votes: <%= proposal.active_votes_count %> </h4>
 		<h4>Deadline:</h4> <%= proposal.expiration %> 
-		<% proposal.active_votes.each do |vote| %>
-			<h4><%= vote.comment %></h4>
+
+		
+		<% if proposal.active_votes.any? {|vote| !!vote.comment} %>
+			<div class="info-box">
+			<% proposal.active_votes.each do |vote| %>
+				<% if vote.comment %>
+					<h4><%= vote.user.name%> said: <%= vote.comment %></h4>
+				<% end %>
+			<% end %>
+			</div>
 		<% end %>
+		
 		<% if logged_in? %>
 			<%= form_tag user_votes_path(current_user) do %>
 				<%= render partial: 'votes/vote_form', locals: {proposal: proposal, user: current_user} %>

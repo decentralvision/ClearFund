@@ -31,6 +31,7 @@ class Proposal < ApplicationRecord
     active.collect { |proposal| proposal.votes.active.count }.max
   end
 
+  
   # def self.active
   #   select { |proposal| proposal.active }
   # end

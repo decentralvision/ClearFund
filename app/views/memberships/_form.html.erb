@@ -26,12 +26,17 @@ $(document).ready(function() {
       </ul>
     </div>
   <% end %>
-<h5>Sliding-scale membership fee:</h5> <div id="slider"></div>
-<div class="field<%= ' field_with_errors' if @membership.errors[:title].any? %>">
-    <h4>$</h4>	<%= f.number_field :dues %>
+<h5>Sliding-scale membership fee:</h5> 
+<div class="field<%= ' field_with_errors' if @membership.errors[:dues].any? %>">
+    <h4>$<%= f.number_field :dues %></h4>
 </div>
+<div></div>
+<div id="slider"></div>
 <%= f.submit membership_submit_button_text %>
+
+
 <% end %>
+
 <% if @user.active_membership? %>
 	<%= button_to "Cancel Membership", user_membership_path(@user, @membership), method: :delete, data: { confirm: "Really?" } %>
 <% end %>
