@@ -22,7 +22,17 @@ class ProposalsController < ApplicationController
   end
 
   def index
-    @proposals = Proposal.active.sort_by{|proposal| proposal.active_votes_count}.reverse
+    if params[:user_id]
+      @proposals = Proposal.select{|proposal| proposal.user_id == params[:user_id].to_i }
+      if @proposals.length > 1
+        render :index
+      else
+        @proposal = @proposals[0]
+        render :show
+      end
+    else
+      @proposals = Proposal.active.sort_by{|proposal| proposal.active_votes_count}.reverse
+    end
   end
 
   def show

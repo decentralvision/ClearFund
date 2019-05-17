@@ -19,13 +19,11 @@ Specs:
 
 Confirm:
 - [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
+- [X] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
 
     high priority
-        [X] add google sign up link to sign up page
-        [ ] move helpers used in controllers to models?
         [ ] blog post, demo video, coding session
         [ ] fix css so everything is pretty
         [ ] update readme - add explanations of how the app is ideally intended to work (crypto)
@@ -37,3 +35,5 @@ Confirm:
             [ ] process memberships should account for how long a user has been a member
         [ ] add validations for passwords and usernames
         [ ] add explanation of app function (donations not distributed if no proposals have votes, what membership is for)
+
+        quick fix(order distribute funds call by expiry date soonest)

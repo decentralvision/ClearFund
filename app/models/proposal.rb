@@ -7,12 +7,16 @@ class Proposal < ApplicationRecord
   belongs_to :user
   has_many :votes
   has_many :users, through: :votes
+  
+  scope :inactive, -> { where(active: false) }
+  scope :active, -> { where(active: true) }
 
   validates :title, length: { minimum: 10 }
   validates :description, length: { minimum: 50 }
   validates :funding_goal, numericality: { only_integer: true }
   validate :expiration_cannot_be_in_the_past
 
+  
   def expiration_cannot_be_in_the_past
     if expiration.present? && expiration < Date.today
       errors.add(:expiration, "can't be in the past")
@@ -27,9 +31,9 @@ class Proposal < ApplicationRecord
     active.collect { |proposal| proposal.votes.active.count }.max
   end
 
-  def self.active
-    select { |proposal| proposal.active }
-  end
+  # def self.active
+  #   select { |proposal| proposal.active }
+  # end
 
   # def self.deactivate_expired
   # end
