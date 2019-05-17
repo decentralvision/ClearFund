@@ -19,12 +19,12 @@ class Proposal < ApplicationRecord
   
   def expiration_cannot_be_in_the_past
     if expiration.present? && expiration < Date.today
-      errors.add(:expiration, "can't be in the past")
+      errors.add(:expiration, "Can't be in the past.")
     end
   end    
 
   def self.max_votes
-    active.select { |proposal| proposal.votes.count == Proposal.max_vote_count }
+    active.select { |proposal| proposal.votes.active.count == Proposal.max_vote_count }
   end
 
   def self.max_vote_count
