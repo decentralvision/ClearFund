@@ -11,20 +11,23 @@
     </div>
   <% end %>
   
+  
   <div class="field<%= ' field_with_errors' if @proposal.errors[:title].any? %>">
   <%= f.label :title %>
   <%= f.text_field :title %>
   </div>
 
-  <div class="field<%= ' field_with_errors' if @proposal.errors[:description].any? %>">
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  </div>
 
   <div class="field<%= ' field_with_errors' if @proposal.errors[:funding_goal].any? %>">
   <%= f.label :funding_goal %>
   <%= f.number_field :funding_goal %>
   </div>
+
+  <div class="field<%= ' field_with_errors' if @proposal.errors[:description].any? %>">
+  <%= f.label :description %>
+  <%= f.text_area :description, size: "45x15"%>
+  </div>
+
 
   <div class="field<%= ' field_with_errors' if @proposal.errors[:expiration_date].any? %>">
 	<%= f.label :expiration_date %>
