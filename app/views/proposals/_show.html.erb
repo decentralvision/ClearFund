@@ -19,7 +19,7 @@
 			</div>
 		<% end %>
 		
-		<% if logged_in? %>
+		<% if logged_in? && proposal.active %>
 			<%= form_tag user_votes_path(current_user) do %>
 				<%= render partial: 'votes/vote_form', locals: {proposal: proposal, user: current_user} %>
 			<% end %>

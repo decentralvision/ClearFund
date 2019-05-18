@@ -1,10 +1,16 @@
-<nav>
-	<ul>
-		<li><%= link_to "About", "/"%></li>
-		<li><%= link_to "Proposals", "/proposals"%></li>
-		<li><%= link_to "Membership", "/memberships"%></li>
-		<li><%= link_to "Donate", "/donate"%></li>
-		<li><%= link_to "Sign Up", "/signup"%></li>
-		<li><%= link_to "Login", "/login"%></li>
-	</ul>
-</nav>
+<div class="topnav" id="myTopnav">
+  <%= link_to "Home", "/"%>
+  <%= link_to "Donate", "/donate"%>
+  <%= membership_nav_link %>
+  <div class="dropdown">
+    <button class="dropbtn">Proposals 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+		<%= proposals_dropdown_menu %>
+    </div>
+  </div> 
+  <%= link_to "Log In", "/login"%>
+  <%= link_to "Sign Up", "/signup"%>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>

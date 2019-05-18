@@ -2,7 +2,7 @@
 
 class ProposalsController < ApplicationController
   include SessionsHelper
-  before_action :authenticate_user, :except => [:index, :show]
+  before_action :authenticate_user, :except => [:index, :show, :funded, :expired]
 
   def new
     @proposal, @user = Proposal.new, current_user
@@ -33,6 +33,18 @@ class ProposalsController < ApplicationController
     else
       @proposals = Proposal.active.sort_by{|proposal| proposal.active_votes_count}.reverse
     end
+  end
+
+  def funded
+
+    @proposals = Proposal.inactive
+    render :index
+  end
+
+  def expired
+
+    @proposals = Proposal.select{|proposal| proposal.expiration < Date.new }
+    render :index
   end
 
   def show

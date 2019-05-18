@@ -18,6 +18,18 @@
 //= require jquery-ui/widgets/slider
 
 
+
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+
 /* unused form submission prevent default fetch and display results 
 <script>	
 

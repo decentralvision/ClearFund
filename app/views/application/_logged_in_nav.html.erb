@@ -1,13 +1,15 @@
-<nav>
-	<ul>
-		<li><%= link_to "About", "/"%></li>
-		<li><%= link_to "Proposals", "/proposals"%></li>
-		<li><%= link_to "My Proposals", user_proposals_path(current_user)%></li>
-		<li>
-		<%= membership_nav_link %>
-		</li>
-		<li><%= link_to "Donate", "/donate"%></li>
-		<li><%= link_to "Create Proposal", new_user_proposal_path(current_user)%></li>
-		<li><%= link_to "Log Out", "/logout"%></li>
-	</ul>
-</nav>
+<div class="topnav" id="myTopnav">
+  <%= link_to "Home", "/"%>
+  <%= link_to "Donate", "/donate"%>
+  <%= membership_nav_link %>
+  <div class="dropdown">
+    <button class="dropbtn">Proposals 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+		<%= proposals_dropdown_menu %>
+    </div>
+  </div> 
+  <%= link_to "Log Out", "/logout"%>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>

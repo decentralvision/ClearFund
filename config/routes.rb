@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post '/process_donation' => 'treasury#process_donation', as: '/processing'
 
   get '/proposals' => 'proposals#index', as: '/proposals'
-
+  get '/funded' => 'proposals#funded', as: '/funded'
+  get '/expired' => 'proposals#expired', as: '/expired'
   get '/signup' => 'users#new'
 
   get '/login' => 'sessions#new'

@@ -4,10 +4,14 @@ module MembershipsHelper
   include ApplicationHelper
 
   def membership_nav_link
-    if current_user.active_membership?
+    if current_user.try(:membership)
 			link_to "Membership", edit_user_membership_path(current_user, current_user.membership)
-		else
-			link_to "Membership", new_user_membership_path(current_user)
+    else
+      if logged_in?
+        link_to "Membership", new_user_membership_path(current_user)
+      else
+        link_to "Membership", '/memberships'
+      end
 		end
   end
 
