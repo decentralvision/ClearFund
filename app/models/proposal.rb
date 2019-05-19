@@ -31,11 +31,12 @@ class Proposal < ApplicationRecord
     active.collect { |proposal| proposal.votes.active.count }.max
   end
 
-  
-  # def self.active
-  #   select { |proposal| proposal.active }
-  # end
-
-  # def self.deactivate_expired
-  # end
+  def self.deactivate_expired
+    active.each do |proposal|
+      if proposal.expiration < Date.today
+        proposal.active = false
+        proposal.save
+      end
+    end
+  end
 end

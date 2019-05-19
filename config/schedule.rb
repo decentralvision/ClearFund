@@ -22,10 +22,11 @@
 # Learn more: http://github.com/javan/whenever
 set :environment, 'development'
 set :output, 'log/cron.log'
+
 every 1.minutes do
   runner 'Treasury.process_memberships'
 end
 
-every 1.days do
+every 1.days, at: '00:00 am' do
   runner 'Proposal.deactivate_expired'
 end

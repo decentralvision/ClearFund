@@ -28,15 +28,15 @@ class Treasury < ApplicationRecord
   
   def self.process_memberships
     treasury = Treasury.find_or_create
-    User.members.each do |member|
-      treasury.funds += member.membership_dues
+    User.members.each do |member|  
+      fractional_dues = member.membership_dues / 43800
+      treasury.funds += fractional_dues
       treasury.save
     end
     treasury.distribute_funds
   end
 
   def distribute_funds  
-    byebug
     while funds > 0 && Proposal.max_vote_count != 0 && !Proposal.active.empty?
       proposal = Proposal.max_votes.first
       remaining_funding = proposal.funding_goal - proposal.funding
