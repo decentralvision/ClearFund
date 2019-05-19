@@ -263,14 +263,8 @@ form > input {
 form > button {
 	grid-column: controls;
 }
-/* form > button a {
-	text-decoration: none;
-	color: red;
-} */
-
 
 form.cancel > input {
-
 	color: red;
 }
 

@@ -26,9 +26,11 @@ class ProposalsController < ApplicationController
       @proposals = Proposal.select{|proposal| proposal.user_id == params[:user_id].to_i }
       if @proposals.length > 1
         render :index
-      else
+      elsif @proposals.length > 0
         @proposal = @proposals[0]
         render :show
+      else
+        render :nothing_here
       end
     else
       @proposals = Proposal.active.sort_by{|proposal| proposal.active_votes_count}.reverse
@@ -36,15 +38,21 @@ class ProposalsController < ApplicationController
   end
 
   def funded
-
     @proposals = Proposal.inactive
-    render :index
+    if !@proposals.empty?
+      render :index
+    else
+      render :nothing_here
+    end
   end
 
   def expired
-
     @proposals = Proposal.select{|proposal| proposal.expiration < Date.new }
-    render :index
+    if !@proposals.empty?
+      render :index
+    else
+      render :nothing_here
+    end
   end
 
   def show

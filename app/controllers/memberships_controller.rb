@@ -19,6 +19,7 @@ class MembershipsController < ApplicationController
     membership = current_user.membership 
     membership.active = false
     membership.save
+    current_user.clear_active_vote_if_exists
     flash[:alert] = 'Successfully cancelled membership.'
     redirect_to edit_user_membership_path
   end

@@ -1,5 +1,5 @@
 <div class="info-box">
-<h3>All donations are anonymous</h3>
+<h3>All donations are anonymous.</h3><p> If no Proposal has any votes, the donation will be held until a proposal has a vote.</p>
 <%= form_tag('/process_donation') %>
 Donation Amount: <%= number_field_tag :donation_amount, min: 1 %>
 <%= submit_tag "Submit Donation", data: {confirm: "Are you sure? Donations are non-refundable"}%>
