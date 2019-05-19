@@ -38,5 +38,5 @@ $(document).ready(function() {
 <% end %>
 
 <% if @user.active_membership? %>
-	<%= button_to "Cancel Membership", user_membership_path(@user, @membership), method: :delete, data: { confirm: "Really?" } %>
+	<%= button_to "Cancel Membership", user_membership_path(@user, @membership), {method: :delete, :form_class => "cancel", data: { confirm: "Really?" } }%>
 <% end %>

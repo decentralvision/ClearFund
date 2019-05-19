@@ -220,10 +220,10 @@ form {
 	display: grid;
 	grid-template-columns: [labels] 1fr [controls] 1fr;
 	grid-gap: 0.8em;
-	padding: 1.2em;
+
 	grid-auto-flow: row;
 	margin: 0 auto;
-	padding: 10%
+
 }
 
 form > div#slider {
@@ -235,10 +235,6 @@ form > .ui-widget-content .ui-state-active {
 	border: lightblue;
 	margin-top: 1px;
 	color: none;
-}
-
-form > input[type=number] {
-
 }
 
 form > h5 {
@@ -256,21 +252,30 @@ form > h4 {
 form > label {
 	grid-column: labels;
 	grid-row: auto;
-
 	text-transform: capitalize;
 }
 
 form > input {
 	grid-column: controls;
 	grid-row: auto;
-
 }
 
 form > button {
 	grid-column: controls;
-
 }
-form > button a {
+/* form > button a {
 	text-decoration: none;
 	color: red;
+} */
+
+
+form.cancel > input {
+
+	color: red;
 }
+
+@media screen and (max-width: 800px) {
+	form {
+		display: block;
+	}
+  }

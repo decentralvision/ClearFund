@@ -28,36 +28,3 @@ function myFunction() {
     x.className = "topnav";
   }
 }
-
-
-/* unused form submission prevent default fetch and display results 
-<script>	
-
-$(":submit").on("click", function (event){
-
-	event.preventDefault();
-
-  var url=$(this).closest('form').attr('action'),	data=$(this).closest('form').serialize(), button=$(this);
-
-	$.ajax({
-	type: 'post',
-	url: url,
-	data: data,
-		success: function(results) {
-			var votes = $(".votes")
-			var buttons = $(":submit")
-			$.get(location.href).then(function(page) {
-				$.each(votes, function(i, value) {
-					votes.eq(i).html($(page).find(".votes").eq(i).html())
-				});
-				$.each(buttons, function(i, value) {
-					var color = $(page).find(":submit").eq(i).css("color")
-					buttons.eq(i).css("color", color)
-				});
-			});
-		}
-	});
-});
-
-</script>
-*/

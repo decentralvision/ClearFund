@@ -1,3 +1,4 @@
+<div class="info-box">
 <%= form_for @user, :html => {:class => 'userform' }, controller: 'users', action: 'create' do |f| %>
 
     <% if @user.errors.any? %>
@@ -10,22 +11,22 @@
         </ul>
       </div>
     <% end %>
-  
-  <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
   <%= f.label :name %>
+  <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
+  
   <%= f.text_field :name %>
   </div>
-  
-  <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
   <%= f.label :password %>
-  <%= f.password_field :password %>
-  
+  <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
+    <%= f.password_field :password %>
+  </div>
   <%= f.label :confirm_password %>
-  <%= f.password_field :password_confirmation %>
+  <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <%= f.submit "Sign Up" %>
-<div></div>
+  <div></div>
   <%= link_to image_tag("btn_google_signin_dark_pressed_web.png"), '/auth/google_oauth2' %>
 <% end %>
-
+</div>

@@ -1,3 +1,4 @@
+<div class="info-box">
 <%= form_for @user, :html => {:class => 'userform' }, url: login_path, method: :post do |f| %>
 
   <%= f.label :name %>
@@ -11,3 +12,4 @@
   <%= link_to image_tag("btn_google_signin_dark_pressed_web.png"), '/auth/google_oauth2' %>
 
 <% end %>
+</div>
