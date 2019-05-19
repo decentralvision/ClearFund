@@ -13,7 +13,7 @@ class Proposal < ApplicationRecord
 
   validates :title, length: { minimum: 10 }
   validates :description, length: { minimum: 50 }
-  validates :funding_goal, numericality: { only_integer: true }
+  validates :funding_goal, numericality: { greater_than: 1 }
   validate :expiration_cannot_be_in_the_past
 
   

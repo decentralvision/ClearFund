@@ -7,7 +7,7 @@ class Treasury < ApplicationRecord
 
   def self.funds=(funds)
     treasury = find_or_create
-    treasury.funds = treasury.funds + funds
+    treasury.funds += funds
     treasury.save
   end
 
@@ -21,7 +21,7 @@ class Treasury < ApplicationRecord
 
   def self.process_donation(donation)
     treasury = find_or_create
-    treasury.funds += donation.to_i
+    treasury.funds += donation.to_f
     treasury.save
     treasury.distribute_funds
   end
@@ -35,24 +35,22 @@ class Treasury < ApplicationRecord
     treasury.distribute_funds
   end
 
-  def distribute_funds
-    unless Proposal.active.empty?
-      while funds > 0 && Proposal.max_vote_count != 0
-        proposal = Proposal.max_votes.first
-        byebug
-        remaining_funding = proposal.funding_goal - proposal.funding
-        if funds >= remaining_funding
-          proposal.funding += remaining_funding
-          proposal.active = false
-          proposal.save
-          self.funds -= remaining_funding
-          save
-        else
-          proposal.funding += self.funds
-          proposal.save
-          self.funds = 0
-          save
-        end
+  def distribute_funds  
+    byebug
+    while funds > 0 && Proposal.max_vote_count != 0 && !Proposal.active.empty?
+      proposal = Proposal.max_votes.first
+      remaining_funding = proposal.funding_goal - proposal.funding
+      if funds >= remaining_funding
+        proposal.funding += remaining_funding
+        proposal.active = false
+        proposal.save
+        self.funds -= remaining_funding
+        save
+      else
+        proposal.funding += funds
+        proposal.save
+        self.funds = 0
+        save
       end
     end
   end

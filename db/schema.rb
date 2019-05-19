@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_05_05_064000) do
 
   create_table "memberships", force: :cascade do |t|
     t.boolean "active", default: true
-    t.integer "dues"
+    t.float "dues"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2019_05_05_064000) do
   create_table "proposals", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "funding_goal"
-    t.integer "funding", default: 0
+    t.float "funding_goal"
+    t.float "funding", default: 0.0
     t.boolean "active", default: true
     t.date "expiration"
     t.integer "user_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_05_05_064000) do
   end
 
   create_table "treasuries", force: :cascade do |t|
-    t.integer "funds"
+    t.float "funds"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

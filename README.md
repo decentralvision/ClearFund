@@ -122,3 +122,10 @@ google oauth
 
 basic validations
 
+
+
+BUGS
+
+first vote fails but gives no error
+
+my proposals page fails to render when user has no proposals
