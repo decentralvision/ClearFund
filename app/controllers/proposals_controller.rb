@@ -38,7 +38,7 @@ class ProposalsController < ApplicationController
   end
 
   def funded
-    @proposals = Proposal.inactive
+    @proposals = Proposal.all.select{|proposal| proposal.funding_goal == proposal.funding}
     if !@proposals.empty?
       render :index
     else

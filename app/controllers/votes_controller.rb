@@ -9,12 +9,11 @@ class VotesController < ApplicationController
 
   def create
     if current_user.active_membership?
-      @vote = Vote.find_or_create_by(user_id: params[:user_id], proposal_id: params[:proposal_id])
       @user = current_user
-      # deactivate vote if it's the user's current active vote
+      active_vote = @user.active_vote
+      @vote = Vote.find_or_create_by(user_id: params[:user_id], proposal_id: params[:proposal_id])
       @user.clear_active_vote_if_exists
-      if @vote != @user.active_vote
-        # clear active vote add comment, activate new vote, save 
+      if @vote != active_vote
         @vote.comment = params[:comment] ? params[:comment] : nil
         @vote.active = true
         @vote.save

@@ -2,7 +2,8 @@
 		<% if proposal.active_vote?(user) %>
 			<input type="submit" value="Vote" style="color:green">
 		<% else %>
-			<%= label_tag value="Comment:" %>
+			<div></div>
+			<h5>Comment :</h5>
 			<input type="text" name="comment">
 			<input type="submit" value="Vote">
 		<% end %>

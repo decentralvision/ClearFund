@@ -12,7 +12,7 @@
 		<% if proposal.active_votes.any? {|vote| !!vote.comment} %>
 			<div class="info-box">
 			<% proposal.active_votes.each do |vote| %>
-				<% if vote.comment %>
+				<% if vote.comment != '' %>
 					<h4><%= vote.user.name%> said: <%= vote.comment %></h4>
 				<% end %>
 			<% end %>
